@@ -41,6 +41,7 @@ jobs:
       - name: Setup Wine
         run: |
           xvfb-run winetricks alldlls=default
+          xvfb-run -e /dev/stdout --server-args="-ac" wineboot -u
       - name: Build and Test
         run: |
           xvfb-run make test-mingw32
